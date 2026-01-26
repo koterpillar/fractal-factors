@@ -1,0 +1,83 @@
+cabal-version: 2.2
+
+-- This file has been generated from package.yaml by hpack version 0.39.1.
+--
+-- see: https://github.com/sol/hpack
+
+name:           fractal-factors
+version:        0.0.0
+description:    Explore your online accounts and their protection
+author:         Alexey Kotlyarov <a@koterpillar.com>
+maintainer:     Alexey Kotlyarov <a@koterpillar.com>
+license:        GPL-3.0-or-later
+build-type:     Simple
+
+library
+  exposed-modules:
+      Factors.Main
+  other-modules:
+      Paths_fractal_factors
+  autogen-modules:
+      Paths_fractal_factors
+  hs-source-dirs:
+      src
+  default-extensions:
+      DerivingVia
+      FunctionalDependencies
+      OverloadedStrings
+      RecordWildCards
+      DuplicateRecordFields
+      OverloadedRecordDot
+      TypeFamilies
+  ghc-options: -Wall -Werror -threaded -optP-Wno-nonportable-include-path
+  build-depends:
+      base
+  default-language: GHC2024
+
+executable fractal-factors
+  main-is: Main.hs
+  other-modules:
+      Paths_fractal_factors
+  autogen-modules:
+      Paths_fractal_factors
+  hs-source-dirs:
+      app
+  default-extensions:
+      DerivingVia
+      FunctionalDependencies
+      OverloadedStrings
+      RecordWildCards
+      DuplicateRecordFields
+      OverloadedRecordDot
+      TypeFamilies
+  ghc-options: -Wall -Werror -threaded -optP-Wno-nonportable-include-path -rtsopts -with-rtsopts=-N
+  build-depends:
+      base
+    , fractal-factors
+  default-language: GHC2024
+
+test-suite tests
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_fractal_factors
+  autogen-modules:
+      Paths_fractal_factors
+  hs-source-dirs:
+      test
+  default-extensions:
+      DerivingVia
+      FunctionalDependencies
+      OverloadedStrings
+      RecordWildCards
+      DuplicateRecordFields
+      OverloadedRecordDot
+      TypeFamilies
+  ghc-options: -Wall -Werror -threaded -optP-Wno-nonportable-include-path -rtsopts -with-rtsopts=-N
+  build-tool-depends:
+      hspec-discover:hspec-discover
+  build-depends:
+      base
+    , fractal-factors
+    , hspec
+  default-language: GHC2024

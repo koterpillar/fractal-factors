@@ -29,6 +29,7 @@ tests:
       - test
     dependencies:
       - fractal-factors
+      - hspec
     build-tools:
       - hspec-discover
     ghc-options:
