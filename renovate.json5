@@ -1,0 +1,15 @@
+{
+  $schema: "https://docs.renovatebot.com/renovate-schema.json",
+  extends: [
+    "config:recommended",
+    ":automergeMinor",
+    "github>koterpillar/renovate-haskell:default.json5",
+  ],
+  rangeStrategy: "bump",
+  packageRules: [
+    {
+      matchPackageNames: ["actions/node-versions"],
+      extractVersion: "^(?<version>v\\d+)",
+    },
+  ],
+}

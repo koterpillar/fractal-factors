@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+OPT_FORMAT=""
+while [ $# -gt 0 ]; do
+  case "$1" in
+    --format)
+      OPT_FORMAT="true"
+      shift
+      ;;
+    *)
+      echo "Unknown argument: $1" >&2
+      exit 1
+      ;;
+  esac
+done
+
+# macOS's bash (3.x) can't interpolate empty arrays into parameters under
+# nounset; keep command and args together as a workaround.
+FOURMOLU=(fourmolu)
+if [ -z "$OPT_FORMAT" ]
+then
+  FOURMOLU+=(--mode check)
+else
+  FOURMOLU+=(--mode inplace)
+fi
+
+DIR=$(cd "$(dirname "$0")" && cd .. && pwd)
+
+"${FOURMOLU[@]}" "${DIR}/app" "${DIR}/src" "${DIR}/test"

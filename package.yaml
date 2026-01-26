@@ -1,0 +1,45 @@
+name: fractal-factors
+version: 0.0.0
+description: Explore your online accounts and their protection
+author: Alexey Kotlyarov <a@koterpillar.com>
+maintainer: Alexey Kotlyarov <a@koterpillar.com>
+license: GPL-3.0-or-later
+language: GHC2024
+default-extensions:
+  - DerivingVia
+  - FunctionalDependencies
+  - OverloadedStrings
+  - RecordWildCards
+  - DuplicateRecordFields
+  - OverloadedRecordDot
+  - TypeFamilies
+dependencies:
+  - base
+ghc-options:
+  - -Wall
+  - -Werror
+  - -threaded
+  - -optP-Wno-nonportable-include-path
+library:
+  source-dirs: src
+tests:
+  tests:
+    main: Spec.hs
+    source-dirs:
+      - test
+    dependencies:
+      - fractal-factors
+    build-tools:
+      - hspec-discover
+    ghc-options:
+      - -rtsopts
+      - -with-rtsopts=-N
+executables:
+  fractal-factors:
+    main: Main.hs
+    source-dirs: app
+    dependencies:
+      - fractal-factors
+    ghc-options:
+      - -rtsopts
+      - -with-rtsopts=-N
