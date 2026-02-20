@@ -1,5 +1,5 @@
 module Main (
-  module Factors.Main,
+  module SrcMain,
 ) where
 
-import Factors.Main
+import SrcMain

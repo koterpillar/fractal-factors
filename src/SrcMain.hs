@@ -1,4 +1,4 @@
-module Factors.Main where
+module SrcMain where
 
 main :: IO ()
 main = pure ()
