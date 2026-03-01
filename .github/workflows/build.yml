@@ -34,7 +34,7 @@ jobs:
       - name: Rename coverage
         run: cp ${{ steps.test.outputs.local-hpc-root }}/mybox/tests/tests.tix coverage.tix
       - name: Upload coverage
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: coverage-0
           path: '*.tix'
@@ -57,7 +57,7 @@ jobs:
           stack-build-arguments: --fast --lock-file error-on-write --coverage --ta "--match XXXXX"
           cache-prefix: coverage
       - name: Download
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v8
         with:
           pattern: 'coverage-*'
           merge-multiple: true
